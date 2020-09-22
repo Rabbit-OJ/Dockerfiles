@@ -26,7 +26,7 @@ jobs:
       - name: Docker Login
         env: 
           DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
-        run: echo "$DOCKER_PASSWORD" | docker login --user rabbitoj --password-stdin
+        run: echo "$DOCKER_PASSWORD" | docker login --username rabbitoj --password-stdin
       
       - name: "Fetch and build Tester v2"
         run: |
