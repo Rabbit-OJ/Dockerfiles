@@ -30,7 +30,7 @@ jobs:
       - name: Get the TagName
         id: tag_name
         env:
-          GITHUB_REF: {{ github.ref }}
+          GITHUB_REF: ${{ github.ref }}
         run: echo ::set-output name=TAG::$(echo $GITHUB_REF | cut -d / -f 3)
       
       - name: "Fetch and build Tester v2"
