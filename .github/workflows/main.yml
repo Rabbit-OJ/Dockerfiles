@@ -26,6 +26,12 @@ jobs:
         env: 
           DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
         run: echo "$DOCKER_PASSWORD" | docker login --username rabbitoj --password-stdin
+
+      - name: Get the TagName
+        id: tag_name
+        env:
+          GITHUB_REF: {{ github.ref }}
+        run: echo ::set-output name=TAG::$(echo $GITHUB_REF | cut -d / -f 3)
       
       - name: "Fetch and build Tester v2"
         run: |
@@ -38,40 +44,40 @@ jobs:
           
       - name: "Build and Publish alpine-tester"
         env: 
-          GITHUB_REF: ${{ github.ref }}
+          TAG_NAME: ${{ steps.tag_name.outputs.TAG }}
           TESTER_NAME: alpine_tester
         run: |
-          docker build -f "./$TESTER_NAME/Dockerfile" -t "$TESTER_NAME:$GITHUB_REF" .
-          docker push "rabbitoj/$TESTER_NAME:$GITHUB_REF"
+          docker build -f "./$TESTER_NAME/Dockerfile" -t "$TESTER_NAME:$TAG_NAME" .
+          docker push "rabbitoj/$TESTER_NAME:$TAG_NAME"
           
       - name: "Build and Publish java-tester"
         env: 
-          GITHUB_REF: ${{ github.ref }}
+          TAG_NAME: ${{ steps.tag_name.outputs.TAG }}
           TESTER_NAME: java_tester
         run: |
-          docker build -f "./$TESTER_NAME/Dockerfile" -t "$TESTER_NAME:$GITHUB_REF" .
-          docker push "rabbitoj/$TESTER_NAME:$GITHUB_REF"
+          docker build -f "./$TESTER_NAME/Dockerfile" -t "$TESTER_NAME:$TAG_NAME" .
+          docker push "rabbitoj/$TESTER_NAME:$TAG_NAME"
           
       - name: "Build and Publish node-tester"
         env: 
-          GITHUB_REF: ${{ github.ref }}
+          TAG_NAME: ${{ steps.tag_name.outputs.TAG }}
           TESTER_NAME: node_tester
         run: |
-          docker build -f "./$TESTER_NAME/Dockerfile" -t "$TESTER_NAME:$GITHUB_REF" .
-          docker push "rabbitoj/$TESTER_NAME:$GITHUB_REF"
+          docker build -f "./$TESTER_NAME/Dockerfile" -t "$TESTER_NAME:$TAG_NAME" .
+          docker push "rabbitoj/$TESTER_NAME:$TAG_NAME"
           
       - name: "Build and Publish python-tester"
         env: 
-          GITHUB_REF: ${{ github.ref }}
+          TAG_NAME: ${{ steps.tag_name.outputs.TAG }}
           TESTER_NAME: python_tester
         run: |
-          docker build -f "./$TESTER_NAME/Dockerfile" -t "$TESTER_NAME:$GITHUB_REF" .
-          docker push "rabbitoj/$TESTER_NAME:$GITHUB_REF"
+          docker build -f "./$TESTER_NAME/Dockerfile" -t "$TESTER_NAME:$TAG_NAME" .
+          docker push "rabbitoj/$TESTER_NAME:$TAG_NAME"
           
       - name: "Build and Publish swift-tester"
         env: 
-          GITHUB_REF: ${{ github.ref }}
+          TAG_NAME: ${{ steps.tag_name.outputs.TAG }}
           TESTER_NAME: swift_tester
         run: |
-          docker build -f "./$TESTER_NAME/Dockerfile" -t "$TESTER_NAME:$GITHUB_REF" .
-          docker push "rabbitoj/$TESTER_NAME:$GITHUB_REF"
+          docker build -f "./$TESTER_NAME/Dockerfile" -t "$TESTER_NAME:$TAG_NAME" .
+          docker push "rabbitoj/$TESTER_NAME:$TAG_NAME"
