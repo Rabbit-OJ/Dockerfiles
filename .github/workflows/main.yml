@@ -47,7 +47,7 @@ jobs:
           TAG_NAME: ${{ steps.tag_name.outputs.TAG }}
           TESTER_NAME: alpine_tester
         run: |
-          docker build -f "./$TESTER_NAME/Dockerfile" -t "$TESTER_NAME:$TAG_NAME" .
+          docker build -f "./$TESTER_NAME/Dockerfile" -t "rabbitoj/$TESTER_NAME:$TAG_NAME" .
           docker push "rabbitoj/$TESTER_NAME:$TAG_NAME"
           
       - name: "Build and Publish java-tester"
@@ -55,7 +55,7 @@ jobs:
           TAG_NAME: ${{ steps.tag_name.outputs.TAG }}
           TESTER_NAME: java_tester
         run: |
-          docker build -f "./$TESTER_NAME/Dockerfile" -t "$TESTER_NAME:$TAG_NAME" .
+          docker build -f "./$TESTER_NAME/Dockerfile" -t "rabbitoj/$TESTER_NAME:$TAG_NAME" .
           docker push "rabbitoj/$TESTER_NAME:$TAG_NAME"
           
       - name: "Build and Publish node-tester"
@@ -63,7 +63,7 @@ jobs:
           TAG_NAME: ${{ steps.tag_name.outputs.TAG }}
           TESTER_NAME: node_tester
         run: |
-          docker build -f "./$TESTER_NAME/Dockerfile" -t "$TESTER_NAME:$TAG_NAME" .
+          docker build -f "./$TESTER_NAME/Dockerfile" -t "rabbitoj/$TESTER_NAME:$TAG_NAME" .
           docker push "rabbitoj/$TESTER_NAME:$TAG_NAME"
           
       - name: "Build and Publish python-tester"
@@ -71,7 +71,7 @@ jobs:
           TAG_NAME: ${{ steps.tag_name.outputs.TAG }}
           TESTER_NAME: python_tester
         run: |
-          docker build -f "./$TESTER_NAME/Dockerfile" -t "$TESTER_NAME:$TAG_NAME" .
+          docker build -f "./$TESTER_NAME/Dockerfile" -t "rabbitoj/$TESTER_NAME:$TAG_NAME" .
           docker push "rabbitoj/$TESTER_NAME:$TAG_NAME"
           
       - name: "Build and Publish swift-tester"
@@ -79,5 +79,5 @@ jobs:
           TAG_NAME: ${{ steps.tag_name.outputs.TAG }}
           TESTER_NAME: swift_tester
         run: |
-          docker build -f "./$TESTER_NAME/Dockerfile" -t "$TESTER_NAME:$TAG_NAME" .
+          docker build -f "./$TESTER_NAME/Dockerfile" -t "rabbitoj/$TESTER_NAME:$TAG_NAME" .
           docker push "rabbitoj/$TESTER_NAME:$TAG_NAME"
