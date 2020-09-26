@@ -54,8 +54,8 @@ jobs:
         run: |
           docker build -f "./$TESTER_NAME/Dockerfile" -t "rabbitoj/$TESTER_NAME:$TAG_NAME" .
           docker push "rabbitoj/$TESTER_NAME:$TAG_NAME"
-          docker tag "rabbitoj/$TESTER_NAME:$TAG_NAME" "docker.pkg.github.com/rabbit-oj/repository-name/$TESTER_NAME:$TAG_NAME"
-          docker push "docker.pkg.github.com/rabbit-oj/repository-name/$TESTER_NAME:$TAG_NAME"
+          docker tag "rabbitoj/$TESTER_NAME:$TAG_NAME" "docker.pkg.github.com/rabbit-oj/Dockerfiles/$TESTER_NAME:$TAG_NAME"
+          docker push "docker.pkg.github.com/rabbit-oj/Dockerfiles/$TESTER_NAME:$TAG_NAME"
 
       - name: "Build and Publish java-tester"
         env: 
@@ -64,8 +64,8 @@ jobs:
         run: |
           docker build -f "./$TESTER_NAME/Dockerfile" -t "rabbitoj/$TESTER_NAME:$TAG_NAME" .
           docker push "rabbitoj/$TESTER_NAME:$TAG_NAME"
-          docker tag "rabbitoj/$TESTER_NAME:$TAG_NAME" "docker.pkg.github.com/rabbit-oj/repository-name/$TESTER_NAME:$TAG_NAME"
-          docker push "docker.pkg.github.com/rabbit-oj/repository-name/$TESTER_NAME:$TAG_NAME"
+          docker tag "rabbitoj/$TESTER_NAME:$TAG_NAME" "docker.pkg.github.com/rabbit-oj/Dockerfiles/$TESTER_NAME:$TAG_NAME"
+          docker push "docker.pkg.github.com/rabbit-oj/Dockerfiles/$TESTER_NAME:$TAG_NAME"
 
       - name: "Build and Publish node-tester"
         env: 
@@ -74,8 +74,8 @@ jobs:
         run: |
           docker build -f "./$TESTER_NAME/Dockerfile" -t "rabbitoj/$TESTER_NAME:$TAG_NAME" .
           docker push "rabbitoj/$TESTER_NAME:$TAG_NAME"
-          docker tag "rabbitoj/$TESTER_NAME:$TAG_NAME" "docker.pkg.github.com/rabbit-oj/repository-name/$TESTER_NAME:$TAG_NAME"
-          docker push "docker.pkg.github.com/rabbit-oj/repository-name/$TESTER_NAME:$TAG_NAME"
+          docker tag "rabbitoj/$TESTER_NAME:$TAG_NAME" "docker.pkg.github.com/rabbit-oj/Dockerfiles/$TESTER_NAME:$TAG_NAME"
+          docker push "docker.pkg.github.com/rabbit-oj/Dockerfiles/$TESTER_NAME:$TAG_NAME"
 
       - name: "Build and Publish python-tester"
         env: 
@@ -84,8 +84,8 @@ jobs:
         run: |
           docker build -f "./$TESTER_NAME/Dockerfile" -t "rabbitoj/$TESTER_NAME:$TAG_NAME" .
           docker push "rabbitoj/$TESTER_NAME:$TAG_NAME"
-          docker tag "rabbitoj/$TESTER_NAME:$TAG_NAME" "docker.pkg.github.com/rabbit-oj/repository-name/$TESTER_NAME:$TAG_NAME"
-          docker push "docker.pkg.github.com/rabbit-oj/repository-name/$TESTER_NAME:$TAG_NAME"
+          docker tag "rabbitoj/$TESTER_NAME:$TAG_NAME" "docker.pkg.github.com/rabbit-oj/Dockerfiles/$TESTER_NAME:$TAG_NAME"
+          docker push "docker.pkg.github.com/rabbit-oj/Dockerfiles/$TESTER_NAME:$TAG_NAME"
 
       - name: "Build and Publish swift-tester"
         env: 
@@ -94,5 +94,5 @@ jobs:
         run: |
           docker build -f "./$TESTER_NAME/Dockerfile" -t "rabbitoj/$TESTER_NAME:$TAG_NAME" .
           docker push "rabbitoj/$TESTER_NAME:$TAG_NAME"
-          docker tag "rabbitoj/$TESTER_NAME:$TAG_NAME" "docker.pkg.github.com/rabbit-oj/repository-name/$TESTER_NAME:$TAG_NAME"
-          docker push "docker.pkg.github.com/rabbit-oj/repository-name/$TESTER_NAME:$TAG_NAME"
+          docker tag "rabbitoj/$TESTER_NAME:$TAG_NAME" "docker.pkg.github.com/rabbit-oj/Dockerfiles/$TESTER_NAME:$TAG_NAME"
+          docker push "docker.pkg.github.com/rabbit-oj/Dockerfiles/$TESTER_NAME:$TAG_NAME"
